@@ -1,0 +1,56 @@
+.btnNuevoColec{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 30%;
+}
+
+.container{
+    margin: 12px 0 0 0;
+}
+
+.modalStyle{
+    place-content: end;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 0 5rem 0 5rem;
+}
+
+.example-viewport {
+    margin-top: 10px !important;
+    height: calc(100vh - 169px);
+}
+
+.allCard{
+    border: 1px solid #000000 !important;
+    margin: 2rem;
+}
+
+@media (max-width: 600px) {
+    .allCard{
+        height: 23rem;
+    }
+}
+
+.inicialesConten{
+    border-radius: 100%;
+}
+
+.inciales{
+    position: relative;
+    top: 30px;
+    border-radius: 100%;
+    width: 4rem;
+    background-color: #000000;
+}
+
+.detailColec{
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
+
+.detailColecBtn{
+    position: relative;
+    top: 45px;
+}
+

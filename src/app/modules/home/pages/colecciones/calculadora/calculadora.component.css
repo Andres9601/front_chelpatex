@@ -1,0 +1,162 @@
+.card1{
+    width: 47%;
+    border-radius: 30px;
+}
+.card2{
+    width: 30%;
+    height: calc(100vh - 245px);
+    border-radius: 30px;
+    border: 1px solid;
+}
+.card2a{
+    width: 70%;
+    height: calc(100vh - 245px);
+    border-radius: 30px;
+    border: 1px solid;
+}
+
+.card2b{
+    width: 40%;
+    height: calc(100vh - 245px);
+    border-radius: 30px;
+    border: 1px solid;
+}
+.card2c{
+    width: 47%;
+    height: calc(100vh - 245px);
+    border-radius: 30px;
+    border: 1px solid;
+}
+
+.contentTareas{
+    height: 350px;
+}
+.contentEmpleados{
+    height: 350px;
+}
+
+.contentCifs{
+    height: 350px;
+}
+
+
+@media (max-width:1000px) {
+    .contentTareas{
+        height: 442px;
+    }
+    .contentEmpleados{
+        height: 442px;
+    }
+    .card2a{
+        width: 100%;
+    }
+    .card2b{
+        width: 100%;
+    }
+}
+
+.example-viewport{
+    height: calc(100vh - 600px);
+    text-align: -webkit-center;
+    
+}
+
+.contentRow{
+    margin: 0px 0px 40px 0px;
+}
+
+.opciones{
+    margin: 0px 0px 0px 10px;
+    position: relative;
+    top: 23px;
+    right: 42px;
+}
+
+.footerCard{
+    position: relative;
+    top: 244px;
+    right: 0px;
+    left: 17px;
+    bottom: 0px;
+}
+.footerCard2{
+    position: relative;
+    top: 300px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.butonFloat{
+    position: fixed;
+    bottom: 150px;
+    right: 388px;
+    border: 1px solid;
+    border-radius: 100%;
+    height: 8%;
+}
+.butonFloatC{
+    position: fixed;
+    bottom: 150px;
+    right: 568px;
+    border: 1px solid;
+    border-radius: 100%;
+    height: 8%;
+}
+
+
+
+
+.btnFinalizar{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 46%;
+}
+
+.btnCont{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 13%;
+}
+
+.btnRegre{
+    border: 1px solid;
+    width: 13%;
+    margin-right: 20px;
+}
+
+
+@media (max-width:1290px) {
+    .opciones{
+        position: relative;
+        top: 0px;
+        right: 0px;
+    }
+}
+
+@media (max-width:1000px) {
+    .card1{
+        width: 100%;
+    }
+
+    .butonFloat{
+        position: fixed;
+        bottom: 150px;
+        right: 140px;
+    }
+
+    .card2{
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    .footerCard2{
+        position: relative;
+        top: 425px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+    }
+    
+}
+

@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html{
+    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.mat-form-field-label {
+    color: rgba(0,0,0,.6) !important;
+}
+
+.mat-form-field-outline{
+    color:rgba(0,0,0,.6) !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper{
+    padding-bottom: 10px !important;
+    margin: 0 !important;
+}
+.mat-input-element, .mat-input-element{
+    color: #000000 !important;
+}
+
+.mat-radio-outer-circle{
+    border-color: #000000 !important;
+}
+.mat-radio-inner-circle{
+    background: #000000 !important;
+}
+
+.sucess-snackbar{
+    background-color: #5EBA7D;
+    color: #000000;
+}
+.error-snackbar{
+    background-color: #C70101;
+    color: #000000;
+}
+.warning-snackbar{
+    background-color: #FFE680;
+    color: #000000;
+}
+
+.spinner-border{
+  position: relative;
+  top: 195px;
+  left: 625px;
+  width: 7rem;
+  height: 7rem;
+}
+
+mat-dialog-container{
+    background: #FFFFFF !important;
+}
+
+mat-card{
+    background-color: #FFFFFF !important;
+    background: #FFFFFF !important;
+}
+
+mat-table{
+  background-color: #FFFFFF !important;
+  border: 1px solid #000000 !important;
+}
+
+mat-paginator{
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+mat-option{
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+mat-select-min-line ng-tns-c192-3 ng-star-inserted{
+  color: #000000 !important;
+}
+
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5c5c5c;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-track {
+    background: #dbdbdb;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #cfcfcf;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #333333;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+
+  input[type=number] { -moz-appearance:textfield; }

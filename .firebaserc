@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chelpa-tex-dev": {
+      "hosting": {
+        "chelpa_tex_frontend": [
+          "chelpa-tex-dev"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chelpa-tex-dev"
+  }
+}

@@ -1,0 +1,16 @@
+.example-viewport {
+    margin-top: 10px !important;
+    height: calc(100vh - 335px);
+}
+
+.mat-table{
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+.botonLogin{
+    margin: 10px 0 0 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 30%;
+}

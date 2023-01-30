@@ -1,0 +1,42 @@
+.card1{
+    width: 40%;
+    border-radius: 30px;
+    border: 1px solid;
+}
+
+.contentRow{
+    margin: 0px 0px 40px 0px;
+}
+
+.opciones{
+    margin: 0px 0px 0px 10px;
+    position: relative;
+    top: 23px;
+    right: 42px;
+}
+
+.botonOk{
+    background-color: #000000;
+    color: #FFFFFF !important;
+    margin: 0 27px 20px 0px;
+    width: 18%;
+}
+
+.botonCancel{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0px 28px 20px 19px;
+    width: 18%
+}
+
+@media (max-width:1100px) {
+    .card1{
+        width: 100%;
+    }
+
+    .opciones{
+        position: initial;
+    }
+    
+}

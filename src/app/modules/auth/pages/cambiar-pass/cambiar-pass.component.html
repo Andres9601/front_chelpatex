@@ -1,0 +1,70 @@
+<div class="d-flex flex-column bd-highlight mb-3">
+    <div class="image align-items-center">
+        <mat-card class="example-card">
+            <mat-card-header>
+            <img class="logoLogin" src="../../../../../assets/images/logoLogin.png" />
+            </mat-card-header>
+            <span style="color:black;font-weight:500;">Recuperar contraseña</span>
+            <mat-card-content>
+                <form class="example-form" [formGroup]="resPass">
+                    <mat-form-field
+                      style="width:20rem;"
+                      class="w-full mt-3"
+                      appearance="outline"
+                    >
+                      <mat-label>Correo Electrónico</mat-label>
+                      <input
+                        type="user"
+                        matInput
+                        formControlName="user"
+                        placeholder="usuario@palmana.com"
+                      />
+                    </mat-form-field>
+                    <div class="mt-5" style="text-align: center">
+                      <button type="submit" class="botonRecuperar" [disabled]="resPass.invalid" mat-flat-button (click)="recuperarPassword()">Enviar</button>
+                    </div>
+                    <div class="mt-3" style="text-align: center">
+                      <button type="submit" class="botonCancelar btn btn-outline-warning" (click)="toBack()">Cancelar</button>
+                    </div>
+                  </form>
+            </mat-card-content>
+          </mat-card>
+    </div>
+    <div class="d-flex flex-row footer">
+        <div style="color:white;width:60%;">
+          <div class="d-flex flex-column footerIzq">
+            <div class="chepaFooter"><span>CHEPA TEX</span> </div>
+            <div class="conecFooter">Conectando la moda</div>
+            <div>
+              <div class="d-flex flex-row">
+                <div>
+                  <img class="icon" src="../../../../../assets/icons/iconFace.png">
+                </div>
+                <div>
+                  <img class="icon" src="../../../../../assets/icons/iconInsta.png">
+                </div>
+                <div>
+                  <img class="icon" src="../../../../../assets/icons/iconTwit.png">
+                </div>
+                <div><img class="icon" src="../../../../../assets/icons/iconln.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="color:white;width:20%;padding: 1rem 0 0 0;">
+          <div class="d-flex flex-column">
+            <div>Empresa</div>
+            <div class="textFotIzq">Sobre Nosotros</div>
+            <div class="textFotIzq">Contáctanos</div>
+          </div>
+        </div>
+        <div style="color:white;width:20%;padding: 1rem 0 0 0;">
+          <div class="d-flex flex-column">
+            <div>Legal</div>
+            <div class="textFotIzq">Términos y condiciones</div>
+            <div class="textFotIzq">Política de Privacidad</div>
+          </div>
+        </div>
+      </div>
+</div>

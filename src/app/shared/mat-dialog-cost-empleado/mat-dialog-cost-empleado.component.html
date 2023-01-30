@@ -1,0 +1,88 @@
+<form [formGroup]="cantEmple">
+    <div class=" row modalStyle">
+        <div class="col">
+            <h1 mat-dialog-title>Nuevo Empleado</h1>
+    
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Nombre empleado
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Nombre Empleado</mat-label>
+                        <input matInput formControlName="nombre">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Documento de Identificación
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-sm-3">
+                    <mat-form-field class="cc" appearance="outline">
+                        <mat-label>C.C</mat-label>
+                        <mat-select formControlName="tipoDoc">
+                          <mat-option value="cedula">Cedula</mat-option>
+                          <mat-option value="cedulaExtrangera" disabled>Cedula de extrageria</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-sm-9">
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Cedula</mat-label>
+                        <input matInput type="number" formControlName="numeroIdentificacion" (keypress)="restriccionNumber($event,'numeroIdentificacion')">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Salario
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>$ Salario en pesos colombianos</mat-label>
+                        <input type="number" matInput formControlName="salario" (keypress)="restriccionNumber($event,'salario')">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Nombre del cargo
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col">
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Cargo</mat-label>
+                        <input matInput formControlName="cargo">
+                      </mat-form-field>
+                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Productividad
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col">
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Unidades producidas por mes</mat-label>
+                        <input type="number" matInput formControlName="productividad" (keypress)="restriccionNumber($event,'productividad')">
+                      </mat-form-field>
+                        
+                </div>
+            </div>
+            <div class="botons" mat-dialog-actions>
+                <button class="botonCancel" mat-button [mat-dialog-close]="false">Cancelar</button>
+                <button class="botonOk" mat-button [mat-dialog-close]="cantEmple.value" [disabled]="cantEmple.invalid" cdkFocusInitial>Añadir</button>
+            </div>
+        </div>
+    </div>
+</form>

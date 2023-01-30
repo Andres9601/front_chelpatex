@@ -1,0 +1,121 @@
+.contenido{
+    width: auto;
+    height: auto;
+}
+
+.image{
+    text-align: -webkit-center;
+    min-height: 80vh;
+    background-image: url(../../../../../assets/images/fondoLogin.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+.image::before{
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.footer{
+    position: relative;
+    height: 100%;
+    min-height: 20vh;
+    background-color: #000000;
+}
+
+.example-card {
+    margin-top: 3rem;
+    width: 23rem;
+    height: 30rem;
+    max-width: 400px;
+    background-color: #FFFFFF;
+}
+
+.logoLogin{
+    height: 11rem;
+    width: 13rem;
+    margin-left:30px
+}
+
+.olvidarContra{
+    text-align: center;
+    font-weight: 1000;
+    font-size: 14px;
+    line-height: 16px;
+    color: #2F3A56;
+    cursor: pointer;
+}
+
+.botonLogin{
+    width: 96%;
+    background-color: #EBD96B !important;
+    color: #000000 !important;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.registro{
+    text-align: center;
+    margin-bottom: 28px;
+    margin-top: 28px;
+}
+
+.crearCuenta{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #00639F;
+    cursor: pointer;
+}
+
+.mat-grid-list {
+    border-radius: 29px;
+}
+
+.footerIzq{
+    padding: 1rem 0 0 2rem;
+}
+
+.icon{
+    width: 2rem;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.chepaFooter{
+    font-family: 'Poppings';
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.conecFooter{
+    color: #8E8E8E;
+    font-size: 13px;
+    margin-left:3px;
+    font-family:'Roboto';
+}
+
+.buttonRegistro{
+    text-align: end;
+}
+
+.terminos{
+    text-align: start;
+}
+
+.textFotIzq{
+    color: #8E8E8E;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+}
+
+
+.titleRegistro{
+    color:#000000;
+    width: 10%;
+    margin: 0 29px 0 0;
+}
+

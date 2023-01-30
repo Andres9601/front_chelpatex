@@ -1,0 +1,72 @@
+mat-sidenav-container{
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+mat-toolbar{
+    background-color: #FFFFFF;
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-color: #0000004c;
+}
+
+
+
+mat-sidenav{
+    background-image: url(../../../../../assets/images/backSidenav.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+} 
+
+mat-list{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.butonSidenav{
+    position: absolute;
+    top: 90px;
+    background-color:#FFFFFF !important;
+    border-radius: 100%;
+}
+
+.notiLogOut{
+    margin: 0 10px 0 0;
+    background-color:#FFFFFF !important;
+    border-radius: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.titleSidenav{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 2rem 0;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.item{
+    display: flex;
+    padding: 0 1rem 2rem 1rem;
+    justify-content: center;
+    color: #FFFFFF;
+    text-decoration-line: none !important;
+    place-content: start;
+}
+
+.iconColeccion{
+    height: 17px;
+    margin-left: 3rem;
+}
+.iconInv{
+    height: 17px;
+    margin-left: 3rem;
+}

@@ -1,0 +1,23 @@
+<div class=" row modalStyle">
+    <div class="col">
+        <h1 mat-dialog-title>Crear una nueva colección</h1>
+        <div class="row">
+            <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                Nombre de la colección
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [(ngModel)]="data">
+                  </mat-form-field>
+                    
+            </div>
+        </div>
+        <div class="botons" mat-dialog-actions>
+            <button class="botonCancel" mat-button [mat-dialog-close]="false">Cancelar</button>
+            <button class="botonOk" mat-button [mat-dialog-close]="data" cdkFocusInitial>Crear</button>
+        </div>
+    </div>
+</div>

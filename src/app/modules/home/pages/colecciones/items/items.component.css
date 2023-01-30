@@ -1,0 +1,62 @@
+.contentCard{
+    border: 1px solid;
+    width: 80%;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.example-viewport{
+    width: 100%;
+    height: calc(100vh - 250px);
+    text-align: -webkit-center;
+    
+}
+
+.globalCard{
+    padding: 23px 100px 0 100px;
+}
+
+.seleccionado{
+    background-color: #FFFFFF;
+    color: #000000;
+    cursor: pointer;
+    padding: 4px 0 0 0;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.seleccion{
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 4px 0 0 0;
+}
+
+.botonCancelar{
+    width: 20%;
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.botonContinuar{
+    width: 20%;
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width:500px) {
+    .globalCard{
+        padding: 0;
+    }
+
+    .botonCancelar{
+        width: 100%;
+    }
+
+    .botonContinuar{
+        width: 100%;
+    }
+}

@@ -1,0 +1,169 @@
+<div class="row" style="margin:37px 0 0 0;">
+  <div class="col-lg-1" style="color: #A6A6A6;"><mat-icon style="cursor:pointer;" (click)="toBack()">keyboard_backspace</mat-icon></div>
+  <div class="col-lg-3" style="color: #A6A6A6;">Nuevo diseño</div>
+</div>
+<div class="row">
+  <form [formGroup]="firstFormGroup" style="text-align: -webkit-center;">
+    <ng-template>Selecciona un molde</ng-template>
+    <mat-card class="card1 m-2">
+      <mat-card-content>
+        <div class="row">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Nombre del nuevo diseño
+            </span>
+          </div>
+          <div class="row" style="place-content:center;">
+            <mat-form-field style="width:50%;" appearance="outline">
+              <mat-label>Nombre del diseño</mat-label>
+              <input matInput placeholder="Nombre diseño" formControlName="nombre" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <hr>
+        <div class="row contentRow">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Selecciona el tipo de prenda
+            </span> 
+          </div>
+          <div class="col" style="margin: 0px 0px 0px 50px;">
+            <mat-radio-group [(ngModel)]="prenda" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="camisa">
+                <span class="opciones">
+                  Camisa
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="camiseta" >
+                <span class="opciones">
+                  Camiseta
+                </span>
+              </mat-radio-button>
+              <mat-radio-button  value="faldas">
+                <span class="opciones">
+                  Faldas
+                </span>
+              </mat-radio-button>
+              <mat-radio-button  value="pantalones">
+                <span class="opciones">
+                  Pantalones
+                </span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <hr>
+        <div class="row contentRow">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Selecciona el tipo de moda
+            </span> 
+          </div>
+          <div class="col" style="margin: 0px 0px 0px 50px;">
+            <mat-radio-group [(ngModel)]="moda" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="casual">
+                <span class="opciones">
+                  Casual
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="formal">
+                <span class="opciones">
+                  Formal
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="deportiva">
+                <span class="opciones">
+                  Deportiva
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="industrial">
+                <span class="opciones">
+                  Industrial
+                </span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <hr>
+        <div class="row contentRow">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Selecciona a quien va dirigido
+            </span> 
+          </div>
+          <div class="col" style="margin: 0px 0px 0px 50px;">
+            <mat-radio-group [(ngModel)]="persona" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="hombre">
+                <span class="opciones">
+                  Hombre
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="mujer">
+                <span class="opciones">
+                  Mujer
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="adolescentes">
+                <span class="opciones">
+                  Adolescentes
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="ninos">
+                <span class="opciones">
+                  Niños
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="bebes">
+                <span class="opciones">
+                  Bebés
+                </span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <hr>
+        <div class="row" style="margin-bottom:40px;">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Selecciona el tipo de acabado
+            </span> 
+          </div>
+          <div class="col" style="margin: 0px 0px 0px 50px;">
+            <mat-radio-group [(ngModel)]="acabado" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="estampado">
+                <span class="opciones">
+                  Estampado
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="tinturado">
+                <span class="opciones">
+                  Tinturado
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="envejecido">
+                <span class="opciones">
+                  Envejecido
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="sublimado">
+                <span class="opciones">
+                  Sublimado
+                </span>
+              </mat-radio-button>
+              <mat-radio-button value="corte">
+                <span class="opciones">
+                  Corte
+                </span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>                    
+      </mat-card-content>
+    </mat-card>
+    
+    <div class="row" style="justify-content:center;margin-top:1.5rem;">
+      <button class="col-2 botonCancel" mat-button (click)="toBack()">Cancelar</button>
+      <button class="col-2 botonOk" mat-button (click)="continuar()" [disabled]="firstFormGroup.invalid">Continuar</button>
+    </div>
+  </form>
+</div>

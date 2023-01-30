@@ -1,0 +1,14 @@
+.cc{
+    width: 5rem;
+}
+
+.botonCancel{
+    border: 1px solid;
+    width: 45%;
+}
+
+.botonOk{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 45%;
+}

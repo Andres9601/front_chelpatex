@@ -1,0 +1,210 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1" style="color: #A6A6A6;"><mat-icon style="cursor:pointer;"
+        (click)="toBack()">keyboard_backspace</mat-icon></div>
+    <div class="col-lg-3" style="color: #A6A6A6;">Nuevo diseño</div>
+
+  </div>
+  <div class="row">
+    <mat-stepper #stepper>
+      <mat-step [stepControl]="cantProd">
+        <form [formGroup]="cantProd" style="text-align: -webkit-center;">
+          <ng-template matStepLabel>Cantidades de Producción</ng-template>
+          <mat-card class="card2 m-2">
+            <mat-card-content>
+              <div class="row">
+                <div class="row">
+                  <span style="margin-bottom:20px;">
+                    Unidades a producir
+                  </span>
+                </div>
+                <div class="row" style="place-content:center;">
+                  <mat-form-field style="width:70%;" appearance="outline">
+                    <mat-label>Unidades</mat-label>
+                    <input type="number" min="1" matInput placeholder="Unidades" (keypress)="restriccionNumber($event)" formControlName="unidades" required>
+                  </mat-form-field>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div>
+            <button class="btnRegre" mat-button  matStepperPrevious>Regresar</button>
+            <button class="btnCont" mat-button (click)="unidades()" matStepperNext>Continuar</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="costoMano">
+        <form [formGroup]="costoMano" style="text-align: -webkit-center;">
+          <ng-template matStepLabel>Costo de Mano de Obra</ng-template>
+          <mat-card class="card2a m-2">
+            <mat-card-content>
+              <mat-tab-group >
+                <mat-tab  label="Por Tarea de maquilas">
+                  <div class="contentTareas">
+                    <!-- <cdk-virtual-scroll-viewport appendOnly itemSize="30" class="example-viewport "> -->
+                      <div *ngFor="let tarea of tareas; let i= index" class="row mt-4" style="width:90%;">
+                        <div class="col">{{tareas[i].nombreTarea.tipoMaquila}}</div>
+                        <div class="col">{{tareas[i].costoTarea}}</div>
+                        <div class="col-1" (click)="borrarTarea(tarea,i)" style="cursor:pointer;"><mat-icon>delete</mat-icon></div>
+                        <div class="col-1" (click)="agregarTarea(tarea,i)" style="cursor:pointer;"><mat-icon>edit</mat-icon></div>
+                      </div>
+                    <!-- </cdk-virtual-scroll-viewport> -->
+                    <button (click)="agregarTarea()" mat-button class="butonFloat">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                    
+                  </div>
+                  <div class="row" style="width: 100%;">
+                    <div class="col-sm-3" style="font-weight: bold;">Total</div>
+                    <div class="col-sm-8" style="text-align: end;">${{totalMesTarea}} por mes</div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Por Empleados">
+                  <div class="contentEmpleados">
+                   <!--  <cdk-virtual-scroll-viewport appendOnly itemSize="30" class="example-viewport mt-4"> -->
+                      <div *ngFor="let empleado of empleados; let i = index" class="row mt-3" style="width:90%;">
+                        <div class="col">{{empleado.nombre}}</div>
+                        <div class="col">{{empleado.cargo}}</div>
+                        <div class="col">{{(empleado.salario/empleado.productividad)*cantProd.get('unidades')?.value | number:'1.0-0'}}</div>
+                        <div class="col-1" (click)="borrarEmpleado(empleado,i)" style="cursor:pointer;"><mat-icon>delete</mat-icon></div>
+                        <div class="col-1" (click)="agregarEmpleado(empleado,i)" style="cursor:pointer;"><mat-icon>edit</mat-icon></div>
+                      </div>
+                    <!-- </cdk-virtual-scroll-viewport> -->
+                    
+                  </div>
+                      <button (click)="agregarEmpleado()" mat-button class="butonFloat">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    
+                  <div class="row" style="width: 100%;">
+                    <div class="col-sm-3" style="font-weight: bold;">Total</div>
+                    <div class="col-sm-8" style="text-align: end;">${{totalEmpleado | number:'1.0-0'}}</div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </mat-card-content>
+          </mat-card>
+          <div>
+            <button class="btnRegre" mat-button matStepperPrevious>Regresar</button>
+            <button class="btnCont" mat-button matStepperNext>Continuar</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="costoCIF">
+
+        <ng-template matStepLabel>Costo de CIFs</ng-template>
+        <form [formGroup]="costoCIF" style="text-align: -webkit-center;">
+          <mat-card class="card2b m-2">
+            <mat-card-content>
+              <div class="row">
+                <div class="row">
+                  <span style="margin-bottom:20px;">
+                    Costos Indirectos
+                  </span>
+                </div>
+                <div class="contentCifs">
+                  <div *ngFor="let cif of cifs; let i = index;" class="row">
+                        <div class="col">{{cif.tipoCif}}</div>
+                        <div class="col">{{(cif.valor/cif.productividadPeriodo)*cantProd.get('unidades')?.value | number:'1.0-0'}}</div>
+                        <div class="col-2" (click)="borrarCif(cif,i)" style="cursor:pointer;"><mat-icon>delete</mat-icon></div>
+                        <div class="col-2" (click)="agregarCostoIndire(cif,i)" style="cursor:pointer;"><mat-icon>edit</mat-icon></div>
+                  </div>
+                  <button (click)="agregarCostoIndire()" mat-button class="butonFloatC">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+
+                <div class="row" style="width: 100%;">
+                  <div class="col-sm-3">total</div>
+                  <div class="col-sm-8" style="text-align: end;">${{totalCifs | number:'1.0-0'}}</div>
+                </div>
+
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div>
+            <button class="btnRegre" mat-button matStepperPrevious>Regresar</button>
+            <button class="btnCont" mat-button matStepperNext (click)="actualizarDiseno()">Continuar</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Estimación Total de Producción</ng-template>
+        <div *ngIf="spinner" class="spinner-border text-dark" role="status" style="position:absolute !important;top: 355px !important;left: 724px !important;"></div>
+        <form *ngIf="totales" [formGroup]="estimacionTotal" style="text-align: -webkit-center;">
+          <mat-card class="card2c m-2">
+            <mat-card-content>
+              <div class="row">
+                <div class="row">
+                  <span style="margin-bottom:20px;">
+                    Estimación Total de la Producción
+                  </span>
+                </div>
+                <div class="row">
+                  <div class="row mt-3">
+                    <div class="col">
+                      Unidades a producir: 
+                    </div>
+                    <div class="col">
+                      {{totales.valorTotalUnidades | number:'1.0-0'}}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      Total Tareas: 
+                    </div>
+                    <div class="col">
+                      {{totales.valorTotalMaquila | number:'1.0-0'}}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      Total Empleados: 
+                    </div>
+                    <div class="col">
+                      {{totales.valorTotalEmpleados | number:'1.0-0'}}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      Total Cifs: 
+                    </div>
+                    <div class="col">
+                      {{totales.valorTotalCif | number:'1.0-0'}}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
+                      Margen de ganancia: 
+                    </div>
+                    <div class="col">
+                      <mat-form-field appearance="outline" style="width: 5rem;">
+                        <mat-label>Margen</mat-label>
+                        <mat-select formControlName="margen" (selectionChange)="cambioMargen($event)">
+                          <mat-option *ngFor="let margen of margenes" [value]="margen">{{margen}}%</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+               
+              </div>
+              <div  class="row" style="width: 100%; margin-top:8rem">
+                <div class="col-sm"> Total </div>
+                <div class="col-sm" style="text-align: end;">$ {{totales.totalEstimado | number:'1.0-0'}}</div>
+              </div>
+              <div class="row" style="width: 100%;">
+                <div class="col-sm">Precio de venta sugerido</div>
+                <div class="col-sm" style="text-align: end;">$ {{valorConMargen | number:'1.0-0'}}</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div>
+            <button class="btnFinalizar" mat-button matStepperNext [disabled]="estimacionTotal.invalid" (click)="finalizar()">Finalizar</button>
+          </div>
+        </form>
+
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

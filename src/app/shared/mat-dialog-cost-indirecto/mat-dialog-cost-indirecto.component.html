@@ -1,0 +1,70 @@
+<form [formGroup]="candCifs">
+    <div class=" row modalStyle">
+        <div class="col">
+            <h1 mat-dialog-title>Nuevo Costo Indirecto</h1>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Tipo de costo indirecto
+                </div>
+            </div>
+            <div class="row text-center" >
+                <div class="col">
+                    <mat-form-field appearance="outline" style="width: 20rem;">
+                        <mat-label>Tipo de costo indirecto</mat-label>
+                        <mat-select formControlName="tipoCif">
+                          <mat-option value="Cif">Cif</mat-option>
+                          <mat-option value="Gasto financiero">Gasto financiero</mat-option>
+                          <mat-option value="Gasto administrativo">Gasto administrativo</mat-option>
+                          <mat-option value="Gasto de ventas">Gasto de ventas</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Valor del costo
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <mat-form-field class="example-form-field" style="width: 20rem;" appearance="outline">
+                        <mat-label>Valor del costo</mat-label>
+                        <input type="number" matInput formControlName="valor">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Periodo del gasto
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <mat-form-field appearance="outline" style="width: 20rem;">
+                        <mat-label>Periodo del gasto</mat-label>
+                        <input type="number" matInput formControlName="periodo">
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Productividad del periodo
+                </div>
+            </div>
+            <div class="row text-center" >
+                <div class="col">
+                    <mat-form-field class="example-form-field" appearance="outline" style="width: 20rem;">
+                        <mat-label>Productividad del periodo</mat-label>
+                        <input type="number" matInput formControlName="productividadPeriodo">
+                      </mat-form-field>
+                        
+                </div>
+            </div>
+            <div class="botons justify-content-center" mat-dialog-actions>
+                <button class="botonCancel" mat-button [mat-dialog-close]="false">Cancelar</button>
+                <button class="botonOk" mat-button [mat-dialog-close]="candCifs.value" cdkFocusInitial>Añadir</button>
+            </div>
+        </div>
+    </div>
+
+</form>
