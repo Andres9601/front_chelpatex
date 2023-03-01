@@ -1,0 +1,29 @@
+<div *ngIf="data.tipoDato === 'Item'" class="d-flex align-items-center flex-column" style="height: 500px;">
+    <div class="p-2">{{data.datos.item.nombre}}</div>
+    <div class="p-2">
+        <ul class="overflow-auto" style="height: calc(100vh - 328px);">
+            <li *ngFor="let item of obj.datos.item | keyvalue">
+                <span style="font-weight: bold;">{{item.key}}:</span> {{item.value}}
+            </li>
+            <li *ngFor="let item of obj.datos.camposAdicionales | keyvalue">
+                <span style="font-weight: bold;">{{item.key}}:</span> {{item.value}}
+            </li>
+        </ul>
+    </div>
+    <div class="mt-auto p-2">
+        <button class="botonOk" mat-button mat-dialog-close cdkFocusInitial [mat-dialog-close]="true">Regresar</button>
+    </div>
+</div>
+<div *ngIf="data.tipoDato === 'Molde'" class="d-flex align-items-center flex-column" style="height: 500px;">
+    <div class="p-2">{{data.datos.nombre}}</div>
+    <div class="p-2">
+        <ul class="overflow-auto" style="height: calc(100vh - 328px);">
+            <li *ngFor="let item of obj.datos | keyvalue">
+                <span style="font-weight: bold;">{{item.key}}:</span> {{item.value}}
+            </li>
+        </ul>
+    </div>
+    <div class="mt-auto p-2">
+        <button class="botonOk" mat-button mat-dialog-close cdkFocusInitial [mat-dialog-close]="true">Regresar</button>
+    </div>
+</div>

@@ -12,12 +12,37 @@
                     <mat-form-field appearance="outline" style="width: 20rem;">
                         <mat-label>Tipo de costo indirecto</mat-label>
                         <mat-select formControlName="tipoCif">
-                          <mat-option value="Cif">Cif</mat-option>
                           <mat-option value="Gasto financiero">Gasto financiero</mat-option>
                           <mat-option value="Gasto administrativo">Gasto administrativo</mat-option>
                           <mat-option value="Gasto de ventas">Gasto de ventas</mat-option>
                         </mat-select>
                       </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Nombre del costo
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <mat-form-field class="example-form-field" style="width: 20rem;" appearance="outline">
+                        <mat-label>Nombre del costo</mat-label>
+                        <input matInput formControlName="nombre">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Porcentaje de Cif
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <mat-form-field class="example-form-field" style="width: 20rem;" appearance="outline">
+                        <mat-label>%</mat-label>
+                        <input type="number" matInput formControlName="porcentajeCif">
+                      </mat-form-field> 
                 </div>
             </div>
             <div class="row">

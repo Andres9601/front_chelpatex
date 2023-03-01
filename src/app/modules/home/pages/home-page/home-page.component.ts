@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
   nombre:string='Colecciones'
   idUser:any;
   token:any;
+  rol:any;
 
   events: string[] = [];
   opened!: boolean;
@@ -35,18 +36,21 @@ export class HomePageComponent implements OnInit {
 
   loginRe(idUser:any,token:any){
     this.userService.loginRe(idUser,token).subscribe(res =>{
+      this.rol = res.rolDTO.rol;
+      console.log(res)
       this.nombreUser = res.usuarioDTO.nombre;
     })
   }
 
   colecciones(){
-    this.nombre = 'Colecciones'
+    this.nombre = 'Colecciones',
     this.router.navigate(['home/misColecciones/misColecciones'])
+    this.limpiarStorage();
   }
 
   inventario(){
+    console.log('Entro')
     this.nombre = 'Inventario de diseños'
-    this.router.navigate(['home/misColecciones/misColecciones'])
   }
 
   open(){
@@ -76,6 +80,13 @@ export class HomePageComponent implements OnInit {
       })
      
     
+
+  }
+
+  limpiarStorage(){
+    localStorage.removeItem('idMolde');
+    localStorage.removeItem('idMold');
+    localStorage.removeItem('idNewMolde');
 
   }
 

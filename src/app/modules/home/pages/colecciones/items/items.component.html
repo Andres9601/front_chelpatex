@@ -2,10 +2,10 @@
     <span >Te sugerimos comprar estos items para tu molde</span>
 </div>
 
-<div class="row">
+<div *ngIf="siMolde" class="row">
     <div class="col globalCard" xstyle="padding: 23px 100px 0 100p;">
         <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <mat-card *cdkVirtualFor="let item of items" class="contentCard" >
+            <mat-card *cdkVirtualFor="let item of items; let i = index;" class="contentCard" >
                 <mat-card-content >
                     <div class="row ">
                         <div class="col-1" style="width: auto;">
@@ -50,17 +50,17 @@
                             <div class="row">
                                 <div class="col">
                                     <div >
-                                        <button (click)="contarMas()" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                        <button (click)="contarMas(item)" mat-icon-button aria-label="Example icon-button with a heart icon">
                                           <span style="color:#37833B;font-size: 26px;">+</span>
                                         </button>
                                       </div>
                                 </div>
                                 <div class="col mt-2">
-                                    {{contador}}
+                                    {{item.cantidad ? item.cantidad : 0}}
                                 </div>
                                 <div class="col">
                                     <div>
-                                        <button (click)="contarMenos()" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                        <button (click)="contarMenos(item)" mat-icon-button aria-label="Example icon-button with a heart icon">
                                           <span style="color:#C8372D;border-radius: 50%;font-size: 26px;">-</span>
                                         </button>
                                       </div>
@@ -68,9 +68,9 @@
                             </div>
                         </div>
                         <div class="col-6"></div>
-                        <div (click)="seleccionarItem(item)" [ngClass]="{'seleccionado': seleccion === 'Añadir al carrito', 'seleccion':seleccion === 'No seleccionar'}" class="col text-center" style="border: 1px solid">
+                        <div (click)="seleccionarItem(item)" [ngClass]="{'seleccion': item.selected}" class="col text-center" style="border: 1px solid">
                             <span class="pt-2" style="font-size: 20px;font-weight: bold;"> 
-                                {{seleccion}}
+                                {{item.selected ? 'Deseleccionar' : 'Añadir Item'}}
                             </span>
                         </div>
                     </div>
@@ -79,6 +79,84 @@
         </cdk-virtual-scroll-viewport>
     </div>
    
+</div>
+
+<div *ngIf="!siMolde" class="d-flex flex-column justify-content-md-center align-items-md-center" style="height: 570px;">
+    <div class="p-2">Añadir ítem</div>
+    <div class="p-2" style="width: 68%;">
+        <form [formGroup]="formItems">
+            <div class="d-flex flex-wrap justify-content-between align-items-start">
+                <div class="p-2" style="width:577px;">
+                    <mat-form-field style="width:100%;" appearance="outline">
+                        <mat-label>Favorite food</mat-label>
+                        <input matInput placeholder="Ex. Pizza" value="Sushi">
+                      </mat-form-field>
+                </div>
+                <div class="p-2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tipo de items</mat-label>
+                        <mat-select formControlName="item" >
+                            <mat-option *ngFor="let item of itemsMol; let i =index" [value]="item.nombre">
+                              {{item.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="p-2" style="margin-left: 3rem;">
+                    <button class="botonOk" mat-button (click)="buscarItems()">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+        <div class="p target" *cdkVirtualFor="let item of items, let i = index">
+            <div class="d-flex">
+                <div class="p">
+                    <img style="border-radius: 10px;" src="../../../../../../assets/images/item.png">
+                </div>
+                <div class="p-2">
+                    <div class="d-flex flex-column justify-content-between" style="height: 292px;">
+                        <div class="p"><span class="textTitle">Tela Manaure 20m/30 prendas promedio </span></div>
+                        <div class="mt-3 p"><span class="text">Composición:</span> 98% Algodón, 2% Elast.</div>
+                        <div class="p"><span class="text">Peso:</span> Peso: 9.7 Onzas</div>
+                        <div class="p"><span class="text">Tejido:</span> 3 x 1</div>
+                        <div class="p"><span class="text">Ancho:</span>  158 cm Cambio dimensional: U(+4) T(+21)</div>
+                        <div class="p"><span class="text">Elasticidad:</span>  55%</div>
+                        <div class="p"><span class="text">Recuperación:</span>  95%</div>
+                        <div class="p"><span class="text">Usos recomendados:</span>  Pantalones, shorts, faldas.</div>
+                        <div class="mt-auto p-2" style="text-decoration: underline;color: #1F619F;cursor: pointer;">Descargar ficha técnica</div>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="d-flex flex-column justify-content-start" style="height: 300px;margin-left: 5rem;">
+                        <div class="p" style="font-weight: bold;">Precio Total</div>
+                        <div class="p">$25.000</div>
+                        <div class="mt-3 p" style="font-weight: bold;">Cantidad</div>
+                        <div class="p">
+                            <div class="d-flex justify-content-end">
+                                <div class="p-2">
+                                    <button class="btnMore" (click)="contarMas(item)">+</button>
+                                </div>
+                                <div class="p-2">
+                                    {{item.cantidad ? item.cantidad : 0}}
+                                </div>
+                                <div class="p-2">
+                                    <button class="btnMin" (click)="contarMenos(item)">-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto p">
+                            <div (click)="seleccionarItem(item)" [ngClass]="{'seleccion': item.selected}" class="col text-center" style="border: 1px solid;padding: 10px;">
+                                <span class="pt-2" style="font-size: 20px;font-weight: bold;"> 
+                                    {{item.selected ? 'Deseleccionar' : 'Añadir Item'}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
 </div>
 
 <div class="row">

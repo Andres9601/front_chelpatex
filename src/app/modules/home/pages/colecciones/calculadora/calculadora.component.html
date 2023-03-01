@@ -65,6 +65,7 @@
                       <div *ngFor="let empleado of empleados; let i = index" class="row mt-3" style="width:90%;">
                         <div class="col">{{empleado.nombre}}</div>
                         <div class="col">{{empleado.cargo}}</div>
+                        <div class="col">{{empleado.tarea}}</div>
                         <div class="col">{{(empleado.salario/empleado.productividad)*cantProd.get('unidades')?.value | number:'1.0-0'}}</div>
                         <div class="col-1" (click)="borrarEmpleado(empleado,i)" style="cursor:pointer;"><mat-icon>delete</mat-icon></div>
                         <div class="col-1" (click)="agregarEmpleado(empleado,i)" style="cursor:pointer;"><mat-icon>edit</mat-icon></div>
@@ -104,7 +105,8 @@
                 </div>
                 <div class="contentCifs">
                   <div *ngFor="let cif of cifs; let i = index;" class="row">
-                        <div class="col">{{cif.tipoCif}}</div>
+                        <div class="col">{{cif.nombre}}</div>
+                        <div class="col">{{cif.porcentajeCif}}%</div>
                         <div class="col">{{(cif.valor/cif.productividadPeriodo)*cantProd.get('unidades')?.value | number:'1.0-0'}}</div>
                         <div class="col-2" (click)="borrarCif(cif,i)" style="cursor:pointer;"><mat-icon>delete</mat-icon></div>
                         <div class="col-2" (click)="agregarCostoIndire(cif,i)" style="cursor:pointer;"><mat-icon>edit</mat-icon></div>
@@ -167,6 +169,14 @@
                   </div>
                   <div class="row mt-3">
                     <div class="col">
+                      Total Gastos: 
+                    </div>
+                    <div class="col">
+                      {{totales.valorTotalCif | number:'1.0-0'}}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col">
                       Total Cifs: 
                     </div>
                     <div class="col">
@@ -180,9 +190,7 @@
                     <div class="col">
                       <mat-form-field appearance="outline" style="width: 5rem;">
                         <mat-label>Margen</mat-label>
-                        <mat-select formControlName="margen" (selectionChange)="cambioMargen($event)">
-                          <mat-option *ngFor="let margen of margenes" [value]="margen">{{margen}}%</mat-option>
-                        </mat-select>
+                        <input type="number" matInput formControlName="margen" (keyup)="cambioMargen($event)">
                       </mat-form-field>
                     </div>
                   </div>

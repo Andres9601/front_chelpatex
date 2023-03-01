@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import(`./pages/colecciones/colecciones.module`).then(m => m.ColeccionesModule)
   },
   {
+    path: 'inventarios', 
+    loadChildren: () => import(`./pages/inventarios/inventarios.module`).then(m => m.InventariosModule)
+  },
+  {
     path:'**',
     redirectTo:'misColecciones'
   }

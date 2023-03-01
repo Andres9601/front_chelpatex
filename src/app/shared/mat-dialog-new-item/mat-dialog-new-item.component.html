@@ -1,0 +1,46 @@
+<div class="targetItem">
+    <div class="d-flex align-items-center flex-column" style="height: 576px;">
+        <div class="p-2">
+            Nuevo Campos
+        </div>
+        <form [formGroup]="formCampos">
+            <div class="p-2">
+                <div class="d-flex flex-column">
+                    <div class="p-2">
+                        <div class="d-flex flex-column">
+                            <div class="textC p-2">Nombre del campo</div>
+                            <div class="p-2">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput formControlName="nombre">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <div class="d-flex flex-column">
+                            <div class="textC p-2">Valor</div>
+                            <div class="p-2">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Valor</mat-label>
+                                    <input matInput formControlName="valor">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="mt-auto p-2">
+            <div class="d-flex">
+                <div class="p-2">
+                    <button class="botonCancel" mat-button mat-dialog-close [mat-dialog-close]="false">Cancelar</button>
+                </div>
+                <div class="p-2">
+                    <button class="botonOk" mat-button mat-dialog-close [mat-dialog-close]="formCampos.value">Aceptar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+</div>

@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="row" >
-                <div class="col-sm-3">
+                <!-- <div class="col-sm-3">
                     <mat-form-field class="cc" appearance="outline">
                         <mat-label>C.C</mat-label>
                         <mat-select formControlName="tipoDoc">
@@ -30,8 +30,8 @@
                           <mat-option value="cedulaExtrangera" disabled>Cedula de extrageria</mat-option>
                         </mat-select>
                       </mat-form-field>
-                </div>
-                <div class="col-sm-9">
+                </div> -->
+                <div class="col-sm">
                     <mat-form-field class="example-form-field" appearance="outline">
                         <mat-label>Cedula</mat-label>
                         <input matInput type="number" formControlName="numeroIdentificacion" (keypress)="restriccionNumber($event,'numeroIdentificacion')">
@@ -48,6 +48,19 @@
                     <mat-form-field class="example-form-field" appearance="outline">
                         <mat-label>$ Salario en pesos colombianos</mat-label>
                         <input type="number" matInput formControlName="salario" (keypress)="restriccionNumber($event,'salario')">
+                      </mat-form-field> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    Tarea
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin:0 0 0 -11px;" mat-dialog-content>
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <mat-label>Nombre de la tarea</mat-label>
+                        <input matInput formControlName="tarea">
                       </mat-form-field> 
                 </div>
             </div>

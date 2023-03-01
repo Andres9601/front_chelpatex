@@ -74,17 +74,23 @@ export class TablaColeccionesComponent implements OnInit, AfterViewInit  {
     private toastr:MatSnackBar) { }
 
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  
+
+  ngOnInit(): void {
+    this.recibirData();
     if(localStorage.getItem('idCole')){
       this.spinner = true;
       this.consultarDisenos(localStorage.getItem('idCole'))
     }
+    
   }
-
-  ngOnInit(): void {
-    this.recibirData();
+  
+  ngAfterViewInit() {
+   
+    
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    
   }
 
  
@@ -139,15 +145,22 @@ export class TablaColeccionesComponent implements OnInit, AfterViewInit  {
 
   crearMolde(){
     const modalReference = this.dialog.open(MatDialogMoldeDiseComponent,{
-      width: '446px',
-      height: '150px'
+      width: '497px',
+      height: '169px',
+      disableClose:true
     })
 
     modalReference.afterClosed().subscribe((res) => {
+      let respuesta = res;
       console.log(res)
-      if(res){
-        this.router.navigate(['home/misColecciones/nuevaColeccion']);
+      if(res === true){
+        this.router.navigate(['home/misColecciones/nuevaColeccion'],{queryParams:{respuesta}})
+      }else if(res === false){
+        this.router.navigate(['home/misColecciones/nuevaColeccion'],{queryParams:{respuesta}});
+      }else{
+        return;
       }
+      
     })
   }
 
@@ -155,7 +168,8 @@ export class TablaColeccionesComponent implements OnInit, AfterViewInit  {
     const modalReference = this.dialog.open(MatDialogBorrarComponent,{
       width: '450px',
       height: '200px',
-      data:'diseño'
+      data:'diseño',
+      disableClose:true
     })
     modalReference.afterClosed().subscribe((result) => {
       this.spinner =true;
@@ -173,6 +187,8 @@ export class TablaColeccionesComponent implements OnInit, AfterViewInit  {
             this.consultarDisenos(localStorage.getItem('idCole'))
           }
         })
+      }else{
+        this.spinner = false;
       }
     })
     

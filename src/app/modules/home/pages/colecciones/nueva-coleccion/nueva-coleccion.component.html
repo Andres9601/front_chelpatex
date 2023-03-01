@@ -157,6 +157,31 @@
               </mat-radio-button>
             </mat-radio-group>
           </div>
+        </div>   
+        <hr *ngIf="!siMolde">                 
+        <div *ngIf="!siMolde" class="row" style="margin-bottom:40px;">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Nombre Molde
+            </span> 
+          </div>
+          <div class="col">
+            <mat-form-field style="width:50%;" appearance="outline">
+              <mat-label>Nombre del diseño</mat-label>
+              <input matInput placeholder="Nombre Molde" formControlName="nombreMol">
+            </mat-form-field>
+          </div>
+        </div>                    
+        <hr *ngIf="!siMolde">                 
+        <div *ngIf="!siMolde" class="row" style="margin-bottom:40px;">
+          <div class="row">
+            <span style="margin-bottom:20px;">
+              Sube el PDF de tu molde
+            </span> 
+          </div>
+          <div class="col" style="margin: 0px 0px 0px 50px;">
+            <input type="file">
+          </div>
         </div>                    
       </mat-card-content>
     </mat-card>

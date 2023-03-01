@@ -26,6 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -38,6 +40,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    MatExpansionModule,
     MatRadioModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -55,6 +58,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSelectModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatTreeModule,
     MatStepperModule,
     MatInputModule,
     MatGridListModule,

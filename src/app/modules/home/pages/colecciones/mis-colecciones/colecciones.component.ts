@@ -31,7 +31,8 @@ export class ColeccionesComponent implements OnInit {
     const modalReference = this.dialog.open(MatDialogColeccionesComponent,{
       width: '446px',
       height: '242px',
-      panelClass:'modalStyle'
+      panelClass:'modalStyle',
+      disableClose:true
     })
 
     modalReference.afterClosed().subscribe((res) => {
@@ -116,7 +117,8 @@ export class ColeccionesComponent implements OnInit {
     const modalReference = this.dialog.open(MatDialogBorrarComponent,{
       width: '450px',
       height: '200px',
-      data:'coleccion'
+      data:'coleccion',
+      disableClose:true
     })
     modalReference.afterClosed().subscribe((result) => {
       console.log(result)

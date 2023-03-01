@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   ocultarMostrarPassword = 'password';
   showEnableBtnPwd: boolean = false;
   public NUMEROS = /^[0-9]+$/
+  rol: any;
+  nombreUser: any;
 
   constructor(
     private formBuilder:FormBuilder,
@@ -62,12 +64,26 @@ export class LoginComponent implements OnInit {
         console.log(result.user.getIdToken().then(res =>{console.log(res)}));
         localStorage.setItem('idUser',result.user.uid)
         if(result.user.uid){
-          this.router.navigate(['/home']);
+          this.loginRe(result.user.uid,token)
+          
         }
       })
       
     }).catch(error => console.log(error));
     
+  }
+
+  loginRe(idUser:any,token:any){
+    this.userServices.loginRe(idUser,token).subscribe(res =>{
+      this.rol = res.rolDTO.rol;
+      console.log(res)
+      if(res.rolDTO.rol === "Proveedor"){
+        this.router.navigate(['/home/inventarios/inventarioProvee'])
+      }else{
+        this.router.navigate(['/home']);
+      }
+      this.nombreUser = res.usuarioDTO.nombre;
+    })
   }
 
   

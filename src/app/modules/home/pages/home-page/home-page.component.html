@@ -6,13 +6,20 @@
         <mat-list>
             <span class="titleSidenav">{{nombreUser}}</span>
             <hr style="height:2px;margin:0 10px 12px 10px">
-            <a routerLink="./misColecciones" style="text-decoration:none;">
+            <a *ngIf="rol ==='Productor'" routerLink="./misColecciones" style="text-decoration:none;">
                 <div class="row">
                     <div class="col-3"><img class="iconColeccion" src="../../../../../assets/icons/colecciIcon.svg"></div>
                     <div class="col-9"><span class="item" (click)="colecciones(); sidenav.toggle()">Mis colecciones</span></div>
                 </div>
             </a>
-            <a routerLink="./misColecciones" style="text-decoration:none;">
+            <a *ngIf="rol === 'Productor'" routerLink="./inventarios/inventarioProd" style="text-decoration:none;">
+                <div class="row">
+                    <div class="col-3"><img class="iconInv" src="../../../../../assets/icons/invIcon.png"></div>
+                    <div class="col-9"><span class="item" (click)="inventario(); sidenav.toggle()">Inventario Productos</span></div>
+                </div>
+                
+            </a>
+            <a *ngIf="rol ==='Proveedor'" routerLink="./inventarios/inventarioProvee" style="text-decoration:none;">
                 <div class="row">
                     <div class="col-3"><img class="iconInv" src="../../../../../assets/icons/invIcon.png"></div>
                     <div class="col-9"><span class="item" (click)="inventario(); sidenav.toggle()">Inventario Productos</span></div>

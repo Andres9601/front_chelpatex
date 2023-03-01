@@ -14,6 +14,7 @@ export class MatDialogCostEmpleadoComponent implements OnInit {
     tipoDoc:[''],
     numeroIdentificacion: ['',[Validators.required,Validators.pattern('[0-9]*')]],
     salario: ['',[Validators.required,Validators.pattern('[0-9]*')]],
+    tarea: ['',[Validators.required]],
     cargo: ['',Validators.required],
     productividad: ['',[Validators.required,Validators.pattern('[0-9]*')]]
   });
@@ -29,6 +30,7 @@ export class MatDialogCostEmpleadoComponent implements OnInit {
       this.cantEmple.get('tipoDoc')?.setValue(this.data.tipoDoc)
       this.cantEmple.get('numeroIdentificacion')?.setValue(this.data.numeroIdentificacion)
       this.cantEmple.get('salario')?.setValue(this.data.salario)
+      this.cantEmple.get('tarea')?.setValue(this.data.tarea)
       this.cantEmple.get('cargo')?.setValue(this.data.cargo)
       this.cantEmple.get('productividad')?.setValue(this.data.productividad)
     }
@@ -51,7 +53,7 @@ export class MatDialogCostEmpleadoComponent implements OnInit {
         !teclaPresionadaEsUnNumero;
         console.log(sePresionoUnaTeclaNoAdmitida)
         let comienzaPorCero = 
-        this.cantEmple.get(tipo)?.value.length === 0 &&
+        this.cantEmple.get(tipo)?.value === 0 &&
         teclaPresionada == 0;
         console.log(comienzaPorCero)
         if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {

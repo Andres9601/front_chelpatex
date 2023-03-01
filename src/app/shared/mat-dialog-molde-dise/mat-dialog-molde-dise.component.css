@@ -20,6 +20,11 @@
     color: #000000;
     margin: 0 27px 0px 0px;
 }
+.botonClose{
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0 27px 0px 0px;
+}
 
 mat-form-field-wrapper{
     height: 5rem !important;

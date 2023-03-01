@@ -1,0 +1,21 @@
+.botonOk{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.botonCancel{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.textC{
+    color: black;
+    font-weight: 600;
+}
+
+.titleText{
+    color: black;
+    font-weight: 500;
+    font-size: 24px;
+}

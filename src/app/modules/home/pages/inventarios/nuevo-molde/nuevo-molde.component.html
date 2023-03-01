@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="col">
+        <div class="row p-4">
+            <div class="back col-1">
+                <div class="col-lg-1" style="color: #A6A6A6;"><mat-icon style="cursor:pointer;" (click)="toBack()">keyboard_backspace</mat-icon></div>
+            </div>
+            <div class="text1 col">
+                Añadir Molde
+            </div>
+        </div>
+        <div class="newClassContent">
+            <div class="addItem p-4">
+                <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+                    <div class="row">
+                        <div class="col">
+                            <span>Nuevo Molde</span>
+                        </div>
+                    </div>
+                    <form [formGroup]="moldeForm">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre del diseño</mat-label>
+                                    <input formControlName="nombre" matInput type="text">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Precio</mat-label>
+                                    <input formControlName="precio" matInput type="text">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Caracteristicas</mat-label>
+                                    <input formControlName="caracteristicas" matInput type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de prenda</mat-label>
+                                    <mat-select formControlName="prenda" name="food">
+                                        <mat-option *ngFor="let prenda of prendas" [value]="prenda.nombre">
+                                          {{prenda.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de moda</mat-label>
+                                    <mat-select formControlName="moda" name="food">
+                                        <mat-option *ngFor="let moda of modas" [value]="moda.nombre">
+                                          {{moda.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Publico Objetivo</mat-label>
+                                    <mat-select formControlName="publico" name="food">
+                                        <mat-option *ngFor="let objetivo of objetivos" [value]="objetivo.nombre">
+                                          {{objetivo.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de acabado</mat-label>
+                                    <mat-select formControlName="acabado" name="food">
+                                        <mat-option *ngFor="let acabado of acabados" [value]="acabado.nombre">
+                                          {{acabado.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ancho de tela</mat-label>
+                                    <input formControlName="tela" matInput type="text">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Consumo total</mat-label>
+                                    <input formControlName="consumo" matInput type="text">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de produccion</mat-label>
+                                    <input formControlName="produccion" matInput type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de cascada</mat-label>
+                                    <input formControlName="cascada" matInput type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input formControlName="imageMolde" type="file"> 
+                            </div>
+                        </div>
+                    </form>
+                </cdk-virtual-scroll-viewport>
+            </div>
+        </div>
+
+        <div class="row buttons">
+            <div class="col-md-3">
+                <button class="botonCancel p-1" mat-button (click)="toBack()">Cancelar</button>
+            </div>
+            <div class="col-md-3">
+                <button class="botonOk p-1" [disabled]="moldeForm.invalid" mat-button (click)="seguirMoldeItem()">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>

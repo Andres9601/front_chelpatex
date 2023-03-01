@@ -46,6 +46,7 @@ export class CalculadoraComponent implements OnInit {
   });
   valorConMargen:any;
   valor = '';
+  numero!:number;
 
   get listaTare(){
     return this.costoMano.get('listTarea') as FormArray;
@@ -81,8 +82,8 @@ export class CalculadoraComponent implements OnInit {
         teclaPresionada != 'Enter' &&
         !teclaPresionadaEsUnNumero;
         console.log(sePresionoUnaTeclaNoAdmitida)
-        let comienzaPorCero = 
-        this.cantProd.get('unidades')?.value.length === 0 &&
+        let comienzaPorCero = 0;
+        this.cantProd.get('unidades')?.value === 0 &&
         teclaPresionada == 0;
         console.log(comienzaPorCero)
         if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
@@ -148,7 +149,7 @@ export class CalculadoraComponent implements OnInit {
     if(empleado){
       const modalReference = this.dialog.open(MatDialogCostEmpleadoComponent,{
         width: '400px',
-        height: '720px',
+        height: '703px',
         data:empleado,
         disableClose:true
       })
@@ -165,7 +166,7 @@ export class CalculadoraComponent implements OnInit {
     }else{
       const modalReference = this.dialog.open(MatDialogCostEmpleadoComponent,{
         width: '400px',
-        height: '620px',
+        height: '703px',
         disableClose:true
       })
   
@@ -241,13 +242,14 @@ export class CalculadoraComponent implements OnInit {
       idDiseno:localStorage.getItem('idDise'),	
       idUsuario:localStorage.getItem('idUser'),
       nombre:localStorage.getItem('nombreDiseno'),
-      idMolde:localStorage.getItem('idMold'),
+      idMolde:localStorage.getItem('idMold') ? localStorage.getItem('idMold') :localStorage.getItem('idNewMolde'),
       unidades:this.cantProd.get('unidades')?.value,
       empleados:this.empleados,
       idsMaquilas:this.idsMaquila,
       cifs:this.cifs,
       activo:1
     }
+    console.log(body)
     this.service.actualizarDiseno(body).subscribe(res => {
       console.log(res);
       this.totales = res;
@@ -258,9 +260,9 @@ export class CalculadoraComponent implements OnInit {
 
   cambioMargen(evento:any){
     console.log(evento);
-    this.estimacionTotal.get('margen')?.setValue(evento.value);
-    this.valorConMargen = (this.totales.totalEstimado/this.totales.unidades)*(1+(this.estimacionTotal.get('margen')?.value/100))
-    console.log(this.estimacionTotal.value)
+    console.log(this.estimacionTotal.value);
+    this.valorConMargen = (this.totales.totalEstimado/this.totales.unidades)/(1-(this.estimacionTotal.get('margen')?.value/100))
+    console.log(this.valorConMargen)
   }
 
   finalizar(){
@@ -276,6 +278,7 @@ export class CalculadoraComponent implements OnInit {
           panelClass:['sucess-snackbar']
         });
         this.router.navigate(['/home']);
+        this.limpiarStorage();
       }
     },(e) => {
       this.toastr.open('Error al crear el diseño','',{
@@ -287,5 +290,12 @@ export class CalculadoraComponent implements OnInit {
 
   toBack(){
     this.location.back();
+  }
+
+  limpiarStorage(){
+    localStorage.removeItem('idMolde');
+    localStorage.removeItem('idMold');
+    localStorage.removeItem('idNewMolde');
+
   }
 }

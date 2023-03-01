@@ -1,0 +1,77 @@
+.back{
+    width: 3% !important;
+}
+.text1{
+    width: 97% !important;
+}
+
+.addItem{
+    text-align: center;
+    border: 1px solid #000000;
+    width: 30rem;
+    border-radius: 10px;
+    margin-left: 27rem;
+    height: 82vh;
+}
+
+.newClassContent{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.buttons{
+    width: 40%;
+    margin-left: 31rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+.botonOk{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 8rem;
+    margin-left: 25px;
+}
+
+.botonCancel{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+    width: 8rem;
+}
+
+
+@media (max-width:1000px) {
+    .addItem{
+        margin-left: 0rem;
+    }
+
+    .buttons{
+        margin-left: 5rem;
+        margin-bottom: 10px;
+    }
+    .botonOk{
+        margin-left: 0rem;
+    }
+}
+
+.listItem{
+    height: calc(100vh - 340px);
+}
+
+.addItemNew{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.example-viewport{
+    width: 100%;
+    height: calc(100vh - 178px);
+}

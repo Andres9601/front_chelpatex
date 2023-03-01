@@ -11,6 +11,8 @@ export class MatDialogCostIndirectoComponent implements OnInit {
 
   candCifs = this._formBuilder.group({
     tipoCif:[''],
+    nombre:[''],
+    porcentajeCif:[''],
     valor:[0],
     periodo:[0],
     productividadPeriodo:[1]

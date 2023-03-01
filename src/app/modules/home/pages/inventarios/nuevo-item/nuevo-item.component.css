@@ -1,0 +1,47 @@
+.back{
+    width: 3% !important;
+}
+.text1{
+    width: 97% !important;
+}
+
+.addItem{
+    text-align: center;
+    border: 1px solid #000000;
+    width: 25rem;
+    border-radius: 10px;
+    margin-left: 27rem;
+    height: 95vh;
+}
+
+.buttons{
+    width: 50%;
+    margin-left: 31rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.botonOk{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 8rem;
+}
+
+.botonCancel{
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0 27px 0px 0px;
+}
+
+.listItem{
+    height: calc(100vh - 340px);
+}
+
+.addItemNew{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    text-decoration: underline;
+    cursor: pointer;
+}
