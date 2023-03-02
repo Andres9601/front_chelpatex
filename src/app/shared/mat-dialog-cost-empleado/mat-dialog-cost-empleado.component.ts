@@ -11,7 +11,6 @@ export class MatDialogCostEmpleadoComponent implements OnInit {
 
   cantEmple = this._formBuilder.group({
     nombre: ['',Validators.required],
-    tipoDoc:[''],
     numeroIdentificacion: ['',[Validators.required,Validators.pattern('[0-9]*')]],
     salario: ['',[Validators.required,Validators.pattern('[0-9]*')]],
     tarea: ['',[Validators.required]],

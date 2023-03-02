@@ -242,7 +242,7 @@ export class CalculadoraComponent implements OnInit {
       idDiseno:localStorage.getItem('idDise'),	
       idUsuario:localStorage.getItem('idUser'),
       nombre:localStorage.getItem('nombreDiseno'),
-      idMolde:localStorage.getItem('idMold') ? localStorage.getItem('idMold') :localStorage.getItem('idNewMolde'),
+      idMolde:localStorage.getItem('idMold') ? localStorage.getItem('idMold') : localStorage.getItem('idNewMolde'),
       unidades:this.cantProd.get('unidades')?.value,
       empleados:this.empleados,
       idsMaquilas:this.idsMaquila,
@@ -270,6 +270,7 @@ export class CalculadoraComponent implements OnInit {
       idDiseno:localStorage.getItem('idDise'),
       margenGanancia:this.estimacionTotal.get('margen')?.value
     }
+    console.log(body.idDiseno)
     console.log(body)
     this.service.finalizar(body).subscribe(res => {
       if(res){
