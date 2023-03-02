@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: '361031164057',
     measurementId: 'G-B245FKH8Z6',
   },
-  apiUrl: 'http://localhost:8080/webresources/controller',
+  apiUrl: 'https://chelpatex0.azurewebsites.net/webresources/controller',
+  /* apiUrl: 'http://localhost:8080/webresources/controller', */
   production: false
 };
 

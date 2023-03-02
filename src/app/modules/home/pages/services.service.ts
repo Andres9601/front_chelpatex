@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ServicesService {
 
-  /* private apiURL = environment.apiUrl; */
-  private apiURL = 'webresources/controller';
+  private apiURL = environment.apiUrl;
+  /* private apiURL = 'webresources/controller'; */
   private token = JSON.stringify(localStorage.getItem('Token')).replace(/['"]+/g,'');
   
 

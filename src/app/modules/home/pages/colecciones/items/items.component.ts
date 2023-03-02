@@ -116,8 +116,8 @@ export class ItemsComponent implements OnInit {
       this.consultarItems();
       
     }
-    localStorage.getItem('idMolde') ? this.siMolde = false : (this.siMolde = true) ;
-    
+    localStorage.getItem('idMolde') ? this.siMolde = false : (this.siMolde = true);
+    console.log(this.siMolde)
   }
 
   
@@ -188,6 +188,9 @@ export class ItemsComponent implements OnInit {
     this.service.consultarItem(idMolde).subscribe(item => {
       if(localStorage.getItem('idMolde')){
         console.log(item)
+        this.items = item;
+      }else{
+        this.items = item;
       }
     })
   }

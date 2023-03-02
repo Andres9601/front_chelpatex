@@ -69,8 +69,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "chelpa_tex_frontend:build:production",
-              "proxyConfig": "proxy.conf.json"
+              "browserTarget": "chelpa_tex_frontend:build:production"
             },
             "development": {
               "browserTarget": "chelpa_tex_frontend:build:development"

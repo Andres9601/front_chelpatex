@@ -23,7 +23,7 @@
 }
 .card2c{
     width: 47%;
-    height: calc(100vh - 245px);
+    height: calc(100vh - 200px);
     border-radius: 30px;
     border: 1px solid;
 }
