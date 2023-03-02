@@ -142,9 +142,15 @@ export class NuevoItemComponent implements OnInit {
 
     Object.assign(dataToSend,parametrosFijos)
     console.log(dataToSend)
+
+    let valorVacio = {
+      nombre:'',
+      valor:''
+    }
+
     let body = {
       item:dataToSend,
-      camposAdicionales:this.camposAdicionales
+      camposAdicionales:this.camposAdicionales ? this.camposAdicionales : valorVacio
     }
     console.log(body)
     this.serviceItem.crearItemConCampos(body).subscribe({
