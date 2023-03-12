@@ -15,7 +15,9 @@ export class ColeccionesComponent implements OnInit {
 
   /*items = Array.from({length: 10}).map((_, i) => `Item #${i}`); */
   items:any;
+  title:string = '';
   spinner:boolean = false;
+  iniciales:string = '';
 
   constructor(private dialog:MatDialog,
     private services:ServicesService,
@@ -25,6 +27,28 @@ export class ColeccionesComponent implements OnInit {
 
   ngOnInit(): void {
     this.consultarColecciones();
+  }
+
+  randomColor(): string {
+    // Genera valores hexadecimales aleatorios para cada uno de los canales de color
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    // Devuelve el valor hexadecimal concatenando los canales de color
+    return '#' + this.rgbToHex(r) + this.rgbToHex(g) + this.rgbToHex(b);
+  }
+
+  // Convierte un valor de canal de color RGB a su valor hexadecimal correspondiente
+  rgbToHex(value: number): string {
+    const hex = value.toString(16);
+    console.log(hex)
+    return hex.length === 1 ? '0' + hex : hex;
+  }
+
+  getInitials(frase: string) {
+    let palabras = frase.split(' ');
+    let iniciales = palabras.slice(0, 2).map(palabra => palabra.charAt(0).toUpperCase()).join('');
+    this.iniciales = iniciales;
   }
 
   nuevaColeccion(){
@@ -37,13 +61,18 @@ export class ColeccionesComponent implements OnInit {
 
     modalReference.afterClosed().subscribe((res) => {
       console.log(res)
+      this.getInitials(res)
       if(res === false){
         this.consultarColecciones();
       }else if(res){
         this.services.enviarDatos(res);
+        this.randomColor()
+        console.log(this.randomColor())
         let body = {
           idUsuario:localStorage.getItem('idUser'),
-          nombre:res
+          nombre:res,
+          iniciales:this.iniciales,
+          color:this.randomColor()
         }
         this.service.crearColeccion(body).subscribe(nuevaColeccion => {
           if(nuevaColeccion){
@@ -130,7 +159,7 @@ export class ColeccionesComponent implements OnInit {
           console.log(error)
           this.toastr.open('Coleccion eliminada con exito','',{
             duration: 3 * 1000,
-            panelClass:['error-snackbar']
+            panelClass:['sucess-snackbar']
           });
           this.consultarColecciones();
         })

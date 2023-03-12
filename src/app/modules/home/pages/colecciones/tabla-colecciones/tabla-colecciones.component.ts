@@ -182,7 +182,7 @@ export class TablaColeccionesComponent implements OnInit, AfterViewInit  {
           if(localStorage.getItem('idCole')){
             this.toastr.open('Diseño eliminado con exito','',{
               duration: 3 * 1000,
-              panelClass:['error-snackbar']
+              panelClass:['sucess-snackbar']
             });
             this.consultarDisenos(localStorage.getItem('idCole'))
           }

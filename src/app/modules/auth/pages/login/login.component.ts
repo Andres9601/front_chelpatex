@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthServicesService } from '../../services/auth-services.service';
 
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
-    private userServices:AuthServicesService) { }
+    private userServices:AuthServicesService,
+    private toastr:MatSnackBar ) { }
 
   ngOnInit(){
     this.datosFormulario();
@@ -69,7 +71,13 @@ export class LoginComponent implements OnInit {
         }
       })
       
-    }).catch(error => console.log(error));
+    }).catch(error => {
+      console.log(error)
+      this.toastr.open('Error al iniciar sesión, revise sus credenciales','',{
+        duration: 3 * 1000,
+        panelClass:['error-snackbar']
+      });
+    });
     
   }
 

@@ -4,10 +4,54 @@
 
 <div *ngIf="spinner" class="spinner-border text-dark" role="status"></div>
 
-<div *ngIf="!spinner" class="row">
-    <div class="col globalCard" xstyle="padding: 23px 100px 0 100p;">
-        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <mat-card *cdkVirtualFor="let item of items" class="contentCard" >
+<div class="d-flex flex-column justify-content-center align-item-center">
+    <div class="p-3 d-flex" style="width: 100%;">
+        <cdk-virtual-scroll-viewport  appendOnly itemSize="50" class="example-viewport">
+        <div *cdkVirtualFor="let molde of moldes" class="p d-flex mb-3" style="border:1px solid; border-radius: 19px;box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);">
+            <div class="p d-flex flex-lg-column">
+                <div class="p">
+                    <img style="height: 237px;width: 161px; border-radius: 10px 0 0 0;" src="../../../../../../assets/images/modelE.png.png">
+                </div>
+            </div>
+            <div class="p ms-5 d-flex flex-column" style="width: 90%;">
+                <div class="p-2 d-flex mb-3">
+                    <div class="p" style="font-size: 20px; font-weight: bold;">{{molde.nombre}}</div>
+                    <div class="p ms-auto">${{molde.precio}}</div>
+                </div>
+                <div class="p d-flex flex-column justify-content-start align-items-start">
+                    <div class="p" ><span style="font-weight: bold;">Ancho Tela:</span>  {{molde.anchoTela}}</div>
+                    <div class="p" ><span style="font-weight: bold;">Consumo Total:</span>  {{molde.consumoTotal}}</div>
+                    <div class="p" ><span style="font-weight: bold;">Tipo Produccion:</span>  {{molde.tipoProduccion}}</div>
+                    <div class="p" ><span style="font-weight: bold;">Tipo Cascada:</span>  {{molde.tipoCascada}}</div>
+                    <div class="p" ><span style="font-weight: bold;">Caracteristicas:</span>  {{(molde.caracteristicas ? molde.caracteristicas : '')}}</div>
+                    <div class="p" style="margin: 16px 0;">
+                        <a style="cursor: pointer; color: #1F619F;" href="https://www.google.com.co/"  target="_blank">
+                            Descargar ficha tecnica
+                        </a>
+                    </div>
+                </div>
+                <div class="p d-flex justify-content-end align-items-end" style="height: 100%;">
+                    <div (click)="seleccionarMolde(molde)" [ngClass]="{'seleccion': molde.selected}" class="col text-center" style="border: 1px solid;padding: 10px;border-radius: 0px 0 15px 0; cursor: pointer;">
+                        <span class="pt-2" style="font-size: 20px;font-weight: bold;"> 
+                            {{molde.selected ? 'Deseleccionar' : 'Añadir Molde'}}
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="p d-flex justify-content-center align-item-center ">
+        <div class="p-2"><button (click)="cancelar()" type="submit" class="botonCancelar" mat-flat-button>Cancelar</button></div>
+        <div class="p-2"><button (click)="continuar()" type="submit" class="botonContinuar" mat-flat-button>Continuar</button></div>
+    </div>
+</div>
+
+<!-- <div *ngIf="!spinner" class="row">
+    <div *ngIf="validadorMoldes" class="col globalCard" xstyle="padding: 23px 100px 0 100p;">
+        <cdk-virtual-scroll-viewport  appendOnly itemSize="50" class="example-viewport">
+            <mat-card *cdkVirtualFor="let molde of moldes" class="contentCard" >
                 <mat-card-content >
                     <div class="row ">
                         <div class="col-1" style="width: auto;">
@@ -19,26 +63,26 @@
                                     <div class="row">
                                         <div class="col text-end">
                                             <span style="font-size: 20px;">
-                                                {{item.nombre}}
+                                                {{molde.nombre}}
                                             </span>
                                         </div>
                                         <div class="col text-end">
                                             <span style="font-weight: bold;">
-                                                ${{item.precio}}
+                                                ${{molde.precio}}
                                             </span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="row"> 
                                             <div class="col-4"><b> Ancho Tela: </b> </div>
-                                            <div class="col">{{item.anchoTela}}</div>
+                                            <div class="col">{{molde.anchoTela}}</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-4">
                                                 <b> Consumo Total: </b>
                                             </div>
                                             <div class="col">
-                                                {{item.consumoTotal}}
+                                                {{molde.consumoTotal}}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -46,7 +90,7 @@
                                                 <b>Tipo Produccion:</b>
                                             </div>
                                             <div class="col">
-                                                {{item.tipoProduccion}}
+                                                {{molde.tipoProduccion}}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -54,7 +98,7 @@
                                                 <b>Tipo Cascada:</b>
                                             </div>
                                             <div class="col">
-                                                {{item.tipoCascada}}
+                                                {{molde.tipoCascada}}
                                             </div>
                                                  
                                         </div>
@@ -63,7 +107,7 @@
                                                 <b>Caracteristicas: </b>
                                             </div>
                                             <div class="col">
-                                                {{(item.caracteristicas ? item.caracteristicas : '')}}
+                                                {{(molde.caracteristicas ? molde.caracteristicas : '')}}
                                             </div>
                                                
                                         </div>
@@ -100,7 +144,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div (click)="seleccionarItem(item)" [ngClass]="{'seleccionado': seleccion === 'Seleccionar y añadir al carrito', 'seleccion':seleccion === 'No seleccionar'}" class="col text-center" style="border: 1px solid">
+                        <div (click)="seleccionarItem(molde)" [ngClass]="{'seleccionado': seleccion === 'Seleccionar y añadir al carrito', 'seleccion':seleccion === 'No seleccionar'}" class="col text-center" style="border: 1px solid">
                             <span class="pt-2" style="font-size: 20px;font-weight: bold;"> 
                                 {{seleccion}}
                             </span>
@@ -110,7 +154,12 @@
             </mat-card>
         </cdk-virtual-scroll-viewport>
     </div>
-   
+    
+    <div *ngIf="!validadorMoldes" class="row example-viewport">
+        <div class="col">
+            No hay moldes para mostrar
+        </div>
+    </div>
 </div>
 
 <div *ngIf="!spinner" class="row">
@@ -120,6 +169,6 @@
     <div class="col text-center">
         <button (click)="continuar()" type="submit" class="botonContinuar" mat-flat-button>Continuar</button>
     </div>
-</div>
+</div> -->
 
 

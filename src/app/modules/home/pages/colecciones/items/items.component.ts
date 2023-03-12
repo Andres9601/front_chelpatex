@@ -72,6 +72,7 @@ export class ItemsComponent implements OnInit {
   formItems:FormGroup = new FormGroup({})
   selectProducts:Products[] = [];
   idMoldeVinc!:number;
+  validadorMolde:boolean = false;
 
 
   selectedValue!: string;
@@ -186,11 +187,22 @@ export class ItemsComponent implements OnInit {
   consultarItems(){
     let idMolde= localStorage.getItem('idMold') ? localStorage.getItem('idMold') : localStorage.getItem('idMolde');
     this.service.consultarItem(idMolde).subscribe(item => {
-      if(localStorage.getItem('idMolde')){
-        console.log(item)
-        this.items = item;
+      console.log(item)
+      console.log(this.validadorMolde)
+      if(item.length > 1){
+        if(localStorage.getItem('idMolde')){
+          this.validadorMolde = true;
+          console.log(item)
+          this.items = item;
+          console.log(this.validadorMolde)
+        }else{
+          this.items = item;
+          this.validadorMolde = true;
+          console.log(this.validadorMolde)
+        }
       }else{
-        this.items = item;
+        this.validadorMolde = false;
+        console.log(this.validadorMolde)
       }
     })
   }

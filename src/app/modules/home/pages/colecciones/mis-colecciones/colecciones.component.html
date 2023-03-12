@@ -1,46 +1,38 @@
 <!-- <mat-spinner *ngIf="spinner" style="top: 250px;right: 0;left: 750px; bottom: 0;"></mat-spinner> -->
 
-<div class="container">
-    <div class="row" style="margin:36px 0 0 0;">
-        <div class="col-lg-3" style="color: #A6A6A6;">Colecciones actuales</div>
-        <div class="col-lg-9" style="text-align: end;" >
+<div class="container mt-4">
+    <div class="d-flex justify-content-between">
+        <div class="p" style="color: #A6A6A6;">Colecciones actuales</div>
+        <div class="p">
             <button class="btnNuevoColec" mat-button (click)="nuevaColeccion()">Nueva Coleccion</button>
         </div>
     </div>
     <div *ngIf="spinner" class="spinner-border text-dark" role="status"></div>
     <div *ngIf="!spinner" class="row">
             <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-                    <mat-card *cdkVirtualFor="let item of items" class="allCard" style="padding:1rem;">
-                        <div class="row">
-                            <div class="col-sm-1 inicialesConten">
-                                <mat-card class="inciales">
-                                    <mat-card-content style="color:#000000;">INI</mat-card-content>
-                                </mat-card>
-                            </div>
-                            <div class="col-sm-10" style="padding:0 0 0 5rem;">
-                                <mat-card-header style="color: black;">
-                                    <mat-card-title>
-                                        {{item.nombre}}
-                                    </mat-card-title>
-                                </mat-card-header>
-                                <mat-card-content style="color: black;">
-                                    <div class="row">{{item.numeroDisenos}} diseños</div>
-                                    <div class="row">{{item.fechaCreacion | date:'dd/MM/yyyy'}}</div>
-                                    <div class="row mt-2" style="color:#91D3FF;cursor: pointer;">
-                                        <u (click)="eliminarColeccion(item.idColeccion)">
-                                            Eliminar esta colección
-                                        </u>
-                                    </div>
-                                </mat-card-content>
-                            </div>
-                            <div class="col-sm-1 detailColec">
-                              <span class="detailColecBtn">
-                                    <img (click)="seleccColeccion(item)" style="height:36px;cursor: pointer;" src="../../../../../../assets/icons/detailColecIcon.png">
-                              </span>  
+                <div *cdkVirtualFor="let item of items" class="d-flex flex-lg-row mb-3 allCard">
+                    <div class="p">
+                        <div class="d-flex flex-column inicial" [ngStyle]="{'background-color': item.color}">
+                            <div class="p-2 bd-highlight iniciales">
+                                {{item.iniciales}}
                             </div>
                         </div>
-                        
-                    </mat-card>
+                    </div>
+                    <div class="p ms-3 d-flex flex-column">
+                        <div class="p title">{{item.nombre}}</div>
+                        <div class="p" style="color:#4D4D4D;font-size: 16px;">{{item.numeroDisenos}} diseños</div>
+                        <div class="p" style="color:#4D4D4D;font-size: 13px;">Creado el {{item.fechaCreacion | date:'dd/MM/yyyy'}}</div>
+                        <div class="p mt-3" style="color:#91D3FF;cursor: pointer;">
+                            <u (click)="eliminarColeccion(item.idColeccion)">
+                                Eliminar esta colección
+                            </u></div>
+                    </div>
+                    <div class="p ms-auto detailColecBtn">
+                        <span>
+                            <img (click)="seleccColeccion(item)" style="height:36px;cursor: pointer;" src="../../../../../../assets/icons/detailColecIcon.png">
+                        </span> 
+                    </div>
+                </div>
             </cdk-virtual-scroll-viewport>
         
     </div>

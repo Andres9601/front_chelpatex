@@ -4,10 +4,10 @@
 
 
 <div *ngIf="siMolde" class="d-flex flex-column justify-content-md-center align-items-md-center" style="height: 570px;">
-    <div class="p-2">Añadir ítem</div>
-    <div class="p-2" style="width: 68%;">
+    <div *ngIf="validadorMolde" class="p-2">Añadir ítem</div>
+    <div *ngIf="validadorMolde" class="p-2" style="width: 68%;">
     </div>
-    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+    <cdk-virtual-scroll-viewport *ngIf="validadorMolde" appendOnly itemSize="50" class="example-viewport">
         <div class="p target" *cdkVirtualFor="let item of items, let i = index">
             <div class="d-flex">
                 <div class="p">
@@ -56,89 +56,12 @@
             </div>
         </div>
     </cdk-virtual-scroll-viewport>
+    <div *ngIf="!validadorMolde" class="p">No se han encontrado items, pero puedes continuar</div>
 </div>
-<!-- <div *ngIf="siMolde" class="row">
-    <div class="col globalCard" xstyle="padding: 23px 100px 0 100p;">
-        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <mat-card *cdkVirtualFor="let item of items; let i = index;" class="contentCard" >
-                <mat-card-content >
-                    <div class="row ">
-                        <div class="col-1" style="width: auto;">
-                            <img style="height: 237px;width: 161px;" src="../../../../../../assets/images/item.png">
-                        </div>
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col text-end">
-                                            <span style="font-size: 20px;">
-                                                Molde vestido dama
-                                            </span>
-                                        </div>
-                                        <div class="col text-end">
-                                            <span style="font-weight: bold;">
-                                                $25000
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="row"><b>Composicion</b> </div>
-                                        <div class="row"><b>Peso</b></div>
-                                        <div class="row"><b>Tejido</b></div>
-                                        <div class="row"><b>Ancho</b></div>
-                                        <div class="row"><b>Elasticidad</b></div>
-                                        <div class="row"><b>Recuperacion</b></div>
-                                        <div class="row"><b>Usos recomendados</b></div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <u style="cursor: pointer; color: #1F619F;">
-                                        Descargar ficha tecnica
-                                    </u>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3" style="border: 1px solid;margin-left:11px;width: 162px;">
-                            <div class="row">
-                                <div class="col">
-                                    <div >
-                                        <button (click)="contarMas(item)" mat-icon-button aria-label="Example icon-button with a heart icon">
-                                          <span style="color:#37833B;font-size: 26px;">+</span>
-                                        </button>
-                                      </div>
-                                </div>
-                                <div class="col mt-2">
-                                    {{item.cantidad ? item.cantidad : 0}}
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <button (click)="contarMenos(item)" mat-icon-button aria-label="Example icon-button with a heart icon">
-                                          <span style="color:#C8372D;border-radius: 50%;font-size: 26px;">-</span>
-                                        </button>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6"></div>
-                        <div (click)="seleccionarItem(item)" [ngClass]="{'seleccion': item.selected}" class="col text-center" style="border: 1px solid">
-                            <span class="pt-2" style="font-size: 20px;font-weight: bold;"> 
-                                {{item.selected ? 'Deseleccionar' : 'Añadir Item'}}
-                            </span>
-                        </div>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </cdk-virtual-scroll-viewport>
-    </div>
-   
-</div> -->
 
 <div *ngIf="!siMolde" class="d-flex flex-column justify-content-md-center align-items-md-center" style="height: 570px;">
-    <div class="p-2">Añadir ítem</div>
-    <div class="p-2" style="width: 68%;">
+    <div *ngIf="validadorMolde" class="p-2">Añadir ítem</div>
+    <div *ngIf="validadorMolde" class="p-2" style="width: 68%;">
         <form [formGroup]="formItems">
             <div class="d-flex flex-wrap justify-content-between align-items-start">
                 <div class="p-2" style="width:577px;">
@@ -163,7 +86,7 @@
             </div>
         </form>
     </div>
-    <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+    <cdk-virtual-scroll-viewport *ngIf="validadorMolde" appendOnly itemSize="50" class="example-viewport">
         <div class="p target" *cdkVirtualFor="let item of items, let i = index">
             <div class="d-flex">
                 <div class="p">
@@ -212,6 +135,7 @@
             </div>
         </div>
     </cdk-virtual-scroll-viewport>
+    <div *ngIf="!validadorMolde" class="p">No se han encontrado items, pero puedes continuar</div>
 </div>
 
 <div class="row">

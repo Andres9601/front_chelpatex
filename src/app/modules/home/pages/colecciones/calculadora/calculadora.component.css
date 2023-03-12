@@ -97,8 +97,8 @@
 }
 .butonFloatC{
     position: fixed;
-    bottom: 150px;
-    right: 568px;
+    bottom: 198px;
+    right: 662px;
     border: 1px solid;
     border-radius: 100%;
     height: 8%;
@@ -116,13 +116,18 @@
 .btnCont{
     background-color: #000000;
     color: #FFFFFF;
-    width: 13%;
 }
 
 .btnRegre{
     border: 1px solid;
-    width: 13%;
     margin-right: 20px;
+}
+
+.contentUnidades{
+    border: 1px solid;
+    height: 100%;
+    width: 37%;
+    border-radius: 40px;
 }
 
 
@@ -132,6 +137,11 @@
         top: 0px;
         right: 0px;
     }
+
+    .butonFloatC{
+        bottom: 198px;
+        right: 490px;
+    }
 }
 
 @media (max-width:1000px) {
@@ -139,10 +149,18 @@
         width: 100%;
     }
 
+    .contentUnidades{
+        width: 100%;
+    }
+
     .butonFloat{
         position: fixed;
-        bottom: 150px;
-        right: 140px;
+        bottom: 187px;
+        right: 103px;
+    }
+
+    .card2a{
+        height: 35rem;
     }
 
     .card2{
@@ -156,6 +174,11 @@
         right: 0px;
         left: 0px;
         bottom: 0px;
+    }
+
+    .butonFloatC{
+        bottom: 298px;
+        right: 110px;
     }
     
 }

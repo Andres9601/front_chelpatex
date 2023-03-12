@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthServicesService } from '../../services/auth-services.service';
 
@@ -18,7 +19,8 @@ export class CambiarPassComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private router:Router,
-    private userService:AuthServicesService) { }
+    private userService:AuthServicesService,
+    private toastr:MatSnackBar) { }
 
   ngOnInit(): void {
     this.datosFormulario();
@@ -36,7 +38,17 @@ export class CambiarPassComponent implements OnInit {
 
   recuperarPassword(){
     this.userService.forgotPassword(this.resPass.get('user')?.value).then(result => {
+      this.toastr.open('Se ha enviado un enlace al correo','',{
+        duration: 3 * 1000,
+        panelClass:['sucess-snackbar']
+      });
       this.router.navigate(['/auth/login']);
-    }).catch(error => console.log(error))
+    }).catch(error => {
+      this.toastr.open('Error al recuperar la contraseña','',{
+        duration: 3 * 1000,
+        panelClass:['error-snackbar']
+      });
+      console.log(error)
+    })
   }
 }

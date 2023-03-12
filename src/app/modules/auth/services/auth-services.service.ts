@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import {Auth, createUserWithEmailAndPassword , signInWithEmailAndPassword, signOut, sendPasswordResetEmail, sendEmailVerification, onAuthStateChanged, signInWithPhoneNumber} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServicesService {
 
-  private apiURL = '/webresources/controller';
+  /* private apiURL = '/webresources/controller'; */
+  private apiURL = environment.apiUrl;
 
   constructor(
     private auth: Auth,
