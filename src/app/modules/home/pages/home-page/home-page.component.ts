@@ -27,6 +27,7 @@ export class HomePageComponent implements OnInit {
     private userService:AuthServicesService) { }
 
   ngOnInit(): void {
+    console.log('Hola 1')
     this.idUser = localStorage.getItem('idUser');
     this.token = localStorage.getItem('Token');
     if(this.idUser && this.token){
